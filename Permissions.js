@@ -30,7 +30,7 @@ class Permissions {
      * This implementation only supports requesting these permissions, a subset
      * of: https://www.w3.org/TR/permissions/#permission-registry
      */
-    VALID_PERMISSIONS = [ 'camera', 'microphone' ];
+    VALID_PERMISSIONS = ['camera', 'microphone'];
 
     _lastReq = Promise.resolve();
 
@@ -113,7 +113,7 @@ class Permissions {
                 = this._lastReq.then(requestPermission, requestPermission);
             return this._lastReq;
         } else if (Platform.OS === 'ios' || Platform.OS === 'macos') {
-            return WebRTCModule.requestPermission(permissionDesc.name);
+            // return WebRTCModule.requestPermission(permissionDesc.name);
         } else {
             return Promise.reject(new TypeError("Unsupported platform."));
         }
